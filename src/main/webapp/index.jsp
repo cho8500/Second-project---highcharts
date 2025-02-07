@@ -6,6 +6,6 @@
 		<title>Insert title here</title>
 	</head>
 	<body>
-		대문입니다
+		upload test
 	</body>
 </html>
