@@ -1,5 +1,69 @@
 @charset "UTF-8";
 
+/* 제목 스타일 */
+#titleContainer {
+	text-align: center;
+	margin-top: 20px;
+}
+
+#stockTitle {
+	font-size: 24px;
+	font-weight: bold;
+	color: #000;
+	transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+#stockTitle.changed {
+	color: #FF5733;
+	transform: scale(1.1);
+}
+
+/* 셀렉트 박스 스타일 */
+#selectContainer {
+	text-align: center;
+}
+
+#stockSelect {
+	width: 220px;
+	padding: 10px 15px;
+	font-size: 14px;
+	color: #333;
+	background: #f0f0f0;
+	border: 1px solid #b0b0b0;
+	border-radius: 8px;
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	cursor: pointer;
+	transition: all 0.3s ease-in-out;
+}
+
+#selectContainer {
+	position: relative;
+}
+
+#stockSelect:after {
+	content: "▼";
+	font-size: 14px;
+	position: absolute;
+	right: 15px;
+	top: 50%;
+	transform: translateY(-50%);
+	color: #666;
+}
+
+#stockSelect:hover {
+	background: linear-gradient(to right, #f8f8f8, #e0e0e0);
+	border-color: #007bff;
+}
+
+#stockSelect:focus {
+	outline: none;
+	border-color: #0056b3;
+	box-shadow: 0 0 10px rgba(0, 91, 187, 0.3);
+}
+
+/* 차트 스타일 */
 .highcharts-figure, .highcharts-data-table table {
 	min-width: 310px;
 	max-width: 800px;

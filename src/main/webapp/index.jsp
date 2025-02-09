@@ -20,17 +20,21 @@
 		<script src="./js/chart.js"></script>
 	</head>
 	<body>
-		<!-- 종목선택 셀렉트 박스 -->
-		<div class="stock_select_box">
-			<label for="stockSelect">종목 선택 : </label>
-			<select id="stockSelect">
-				<option value="">전체 보기</option>
-			</select>
+		<!-- 종목 표시 -->
+		<div id="titleContainer">
+			<h2 id="stockTitle">삼성전자</h2>
 		</div>
 		
 		<!-- 차트 컨테이너 -->
 		<figure class="highcharts-figure">
 			<div id="container"></div>
 		</figure>
+		
+		<!-- 종목 선택 -->
+		<div id="selectContainer">
+			<select id="stockSelect">
+				<option value="">종목을 선택하세요</option>
+			</select>
+		</div>
 	</body>
 </html>

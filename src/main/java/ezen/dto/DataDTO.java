@@ -17,7 +17,7 @@ public class DataDTO extends DbManager
 	{
 		String sql = "";
 		sql += "WITH RECURSIVE date_series AS (";
-		sql += "SELECT CURDATE() - INTERVAL 90 DAY AS date ";
+		sql += "SELECT CURDATE() - INTERVAL 180 DAY AS date ";
 		sql += "UNION ALL ";
 		sql += "SELECT date + INTERVAL 1 DAY ";
 		sql += "FROM date_series ";

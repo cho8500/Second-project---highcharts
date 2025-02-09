@@ -15,11 +15,23 @@ function initChart()
 		},
 		yAxis : [{
 			title    : { text   : "Stock Price" },
-			labels   : { format : "{value} KRW" }
+			labels   : {
+				formatter : function () {
+					return Highcharts.numberFormat(this.value, 0, '.', ',') + " KRW";
+				}
+			}
 		}, {
 			title    : { text   : "Sentiment Score" },
 			labels   : { format : "{value} points" },
-			opposite : true
+			opposite : true,
+			min      : 0,
+			max      : 200,
+			plotLines : [{
+				value : 50,
+				color : "red",
+				width : 1,
+				dashStyle : "dash"
+			}]
 		}],
 		series : [{
 			name : "Stock Price",
@@ -53,5 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	document.querySelector("#stockSelect").addEventListener("change", function () {
 		selectedStock = this.value;
 		filterStockData(selectedStock);
+		
+		document.querySelector("#stockTitle").textContent = `${selectedStock}`;
 	});
 });
