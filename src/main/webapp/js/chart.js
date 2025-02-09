@@ -21,7 +21,17 @@ function initChart()
 			labels   : { format : "{value} points" },
 			opposite : true
 		}],
-		series : chartData.series
+		series : [{
+			name : "Stock Price",
+			data : chartData.series[0].data,
+			type : "line",
+			connectNulls : true
+		}, {
+			name : "Sentiment Score",
+			data : chartData.series[1].data,
+			type : "column",
+			yAxis : 1
+		}]
 	});
 }
 
@@ -29,9 +39,9 @@ function initChart()
 function updateChart()
 {
 	stockChart.xAxis[0].setCategories(chartData.categories, false);
+	
 	stockChart.series[0].setData(chartData.series[0].data, false);
 	stockChart.series[1].setData(chartData.series[1].data, false);
-	stockChart.series[2].setData(chartData.series[2].data, false);
 	
 	stockChart.redraw();
 }

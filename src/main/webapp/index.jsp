@@ -6,7 +6,7 @@
 		<meta charset="UTF-8">
 		<title>HighChart data</title>
 		<!-- 스타일 시트 -->
-		<link rel="stylesheet" href="./style.css">
+		<link rel="stylesheet" href="./css/style.css">
 		
 		<!-- 하이차트 라이브러리 -->
 		<script src="https://code.highcharts.com/highcharts.js"></script>

@@ -2,6 +2,14 @@
  * DB에서 불러온 데이터를 처리하는 JS파일
  */
 
+let chartData = {
+	categories : [],
+	series : [
+		{ name : "Stock Price",     data : [] },
+		{ name : "Sentiment Score", data : [] }
+	]
+};
+
 let allData       = [];
 let stockList     = [];
 let selectedStock = "삼성전자";
@@ -25,12 +33,13 @@ function filterStockData(stockName)
 {
 	let filteredData = allData.filter(item => item.name === stockName);
 	
+	// x축 데이터 설정
 	chartData.categories = filteredData.map(item => item.date);
+	
+	// y축 데이터 설정
 	chartData.series[0].data = filteredData.map(item => item.sise !== null ? parseInt(item.sise) : null);
 	chartData.series[1].data = filteredData.map(item => parseInt(item.score));
-	chartData.series[2].data = filteredData.map	(item => ({ x : chartData.categories.indexOf(item.date),
-														    y : item.score,
-														    z : parseInt(item.newsCount) }));
+
 	updateChart();
 }
 

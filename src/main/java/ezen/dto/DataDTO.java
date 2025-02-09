@@ -29,8 +29,8 @@ public class DataDTO extends DbManager
 		sql +=		"COALESCE( s.name, t.name ) AS name, ";
 		sql +=		"s.code, ";
 		sql +=		"s.sise, ";
-		sql +=		"COALESCE( t.score, 0 ) AS score, ";
-		sql +=		"COALESCE( t.news_count, 0 ) AS news_count ";
+//		sql +=		"COALESCE( t.score, 0 ) AS score, ";
+		sql +=		"t.score ";
 		sql += "FROM date_series d ";
 		sql += "LEFT JOIN sise_data s ON d.date = s.date ";
 		sql += "LEFT JOIN total_result t ON d.date = t.date AND s.name = t.name ";
@@ -54,7 +54,6 @@ public class DataDTO extends DbManager
 			vo.setCode(this.getString("code"));
 			vo.setSise(this.getString("sise"));
 			vo.setScore(this.getString("score"));
-			vo.setCount(this.getString("news_count"));
 			
 			data_list.add(vo);
 		}
