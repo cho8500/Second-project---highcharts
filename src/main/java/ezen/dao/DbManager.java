@@ -23,9 +23,13 @@ public class DbManager
 //	Database connection
 	public void dbConnect()
 	{
-		String url = "jdbc:mysql://localhost:3306/boarddb";
+//		String url = "jdbc:mysql://localhost:3306/boarddb";
+//		String id  = "root";
+//		String pw  = "ezen";
+		
+		String url = "jdbc:mysql://localhost:3306/second_project";
 		String id  = "root";
-		String pw  = "ezen";
+		String pw  = "chogh";
 
 		try { conn = DriverManager.getConnection(url, id, pw); }
 		catch (SQLException e) { e.printStackTrace(); }
@@ -53,7 +57,7 @@ public class DbManager
 	
 	public boolean next()
 	{
-		try { return rs.next(); }
+		try{ return rs.next(); }
 		catch (SQLException e)
 		{ 
 			e.printStackTrace();
