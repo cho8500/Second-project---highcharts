@@ -8,24 +8,29 @@ let stockChart;
 function initChart()
 {
 	stockChart = Highcharts.chart("container", {
-		chart : { zoomType : "xy" },
+		chart : {
+			zoomType : "xy",
+			width    : 1500,
+			height   : 900
+		},
 		title : { text     : "Analysis chart for stock and news_sentiment_score" },
 		xAxis : { categories : chartData.categories,
 				  crosshair  : true
 		},
 		yAxis : [{
 			title    : { text   : "Stock Price" },
-			labels   : {
-				formatter : function () {
-					return Highcharts.numberFormat(this.value, 0, '.', ',') + " KRW";
-				}
-			}
+			labels   : { formatter : function() { return Highcharts.numberFormat(this.value, 0, '.', ',') + " KRW"; } },
+			height   : "50%",
+			offset   : 0
 		}, {
 			title    : { text   : "Sentiment Score" },
 			labels   : { format : "{value} points" },
 			opposite : true,
 			min      : 0,
-			max      : 200,
+			max      : 100,
+			top      : "50%",
+			height   : "50%",
+			offset   : 0,
 			plotLines : [{
 				value : 50,
 				color : "red",
@@ -36,7 +41,8 @@ function initChart()
 		series : [{
 			name : "Stock Price",
 			data : chartData.series[0].data,
-			type : "line",
+			type : "spline",
+			marker : { enabled : false },
 			connectNulls : true
 		}, {
 			name : "Sentiment Score",

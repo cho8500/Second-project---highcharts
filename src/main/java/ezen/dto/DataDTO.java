@@ -26,16 +26,15 @@ public class DataDTO extends DbManager
 		
 		sql += "SELECT ";
 		sql +=		"d.date, ";
-		sql +=		"COALESCE( s.name, t.name ) AS name, ";
+		sql +=		"s.name, ";
 		sql +=		"s.code, ";
 		sql +=		"s.sise, ";
-//		sql +=		"COALESCE( t.score, 0 ) AS score, ";
-		sql +=		"t.score ";
+		sql +=		"COALESCE(t.score, 0) AS score, ";
+		sql +=		"COALESCE(t.news_count, 0) AS news_count ";
 		sql += "FROM date_series d ";
-		sql += "LEFT JOIN sise_data s ON d.date = s.date ";
+		sql += "JOIN sise_data s ON d.date = s.date ";
 		sql += "LEFT JOIN total_result t ON d.date = t.date AND s.name = t.name ";
-		sql += "WHERE COALESCE( s.name, t.name ) IS NOT NULL ";
-		sql += "ORDER BY d.date ASC, name ASC;";
+		sql += "ORDER BY d.date ASC, s.name ASC;";
 		
 		System.out.println(sql);
 		

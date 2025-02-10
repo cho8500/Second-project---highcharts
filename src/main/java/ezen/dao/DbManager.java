@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-// 데이터에 접근할 수 있는 메소드를 담은 클래스 (Data Access Object); 데이터베이스와 상호작용 한다.
+// 데이터에 접근할 수 있는 메소드를 담은 DAO 클래스
 public class DbManager
 {
 	Connection conn = null;
@@ -16,23 +16,35 @@ public class DbManager
 //	Driver loading
 	public void driverLoad()
 	{
-		try { Class.forName("com.mysql.cj.jdbc.Driver"); } 
-		catch (ClassNotFoundException e) { e.printStackTrace();	}
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			System.out.println("드라이버 로드 성공");
+		} 
+		catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			System.out.println("드라이버 로드 실패");
+			}
 	}
 	
 //	Database connection
 	public void dbConnect()
 	{
-//		String url = "jdbc:mysql://localhost:3306/boarddb";
-//		String id  = "root";
-//		String pw  = "ezen";
+		String url = "jdbc:mysql://192.168.0.184:3306/second_project";
+		String id  = "cho";
+		String pw  = "ezen";
 		
-		String url = "jdbc:mysql://localhost:3306/second_project";
-		String id  = "root";
-		String pw  = "chogh";
+//		String url = "jdbc:mysql://localhost:3306/second_project";
+//		String id  = "root";
+//		String pw  = "chogh";
 
-		try { conn = DriverManager.getConnection(url, id, pw); }
-		catch (SQLException e) { e.printStackTrace(); }
+		try {
+			conn = DriverManager.getConnection(url, id, pw);
+			System.out.println("데이터베이스 연결 성공");
+		}
+		catch (SQLException e) {
+			System.out.println("데이터베이스 연결 실패");
+			e.printStackTrace();
+		}
 	}
 	
 //	Execute queries; create, update, delete
