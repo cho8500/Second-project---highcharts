@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="ezen.vo.*" %>
-<%@ page import="ezen.dto.*" %>
+<%@ page import="ezen.vo.DataVO" %>
+<%@ page import="ezen.dto.DataDTO" %>
 <%@ page import="java.util.HashSet"%>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="com.google.gson.Gson" %>
