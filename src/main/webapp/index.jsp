@@ -36,5 +36,16 @@
 			<div id="container"></div>
 		</figure>
 		
-	</body>
+		<!-- 기사 표시 -->
+		<div id="newsContainer">
+			<div class="news-section" id="positiveNews">
+				<h3>긍정 기사</h3>
+				<p></p>
+			</div>
+			<div class="news-section" id="negativeNews">
+				<h3>부정 기사</h3>
+				<p></p>
+			</div>
+		</div>
+</body>
 </html>

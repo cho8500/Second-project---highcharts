@@ -112,3 +112,37 @@
 .highcharts-description {
 	margin: 0.3rem 10px;
 }
+
+/* 기사 스타일 */
+#newsContainer {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 20px;
+}
+
+.news-section {
+	width: 48%; /* 양쪽 영역을 50%보다 살짝 작게 */
+	padding: 10px;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	background-color: #f9f9f9;
+}
+
+.news-section h3 {
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+.news-section p {
+	font-size: 14px;
+	margin: 5px 0;
+}
+
+.news-section a {
+	text-decoration: none;
+	color: #007bff;
+}
+
+.news-section a:hover {
+	text-decoration: underline;
+}

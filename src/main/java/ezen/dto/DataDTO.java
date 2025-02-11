@@ -60,4 +60,39 @@ public class DataDTO extends DbManager
 		
 		return data_list;
 	}
+	
+	public ArrayList<DataVO> getNews()
+	{
+		String sql = "";
+		sql += "SELECT * ";
+		sql += "FROM daily_data ";
+		sql += "WHERE date=CURDATE() ";
+		sql += "ORDER BY name DESC, score DESC;";
+		
+		System.out.println(sql);
+		
+		this.driverLoad();
+		this.dbConnect();
+		this.executeQuery(sql);
+		
+		ArrayList<DataVO> url_list = new ArrayList<DataVO>();
+		
+		while(this.next())
+		{
+			DataVO vo = new DataVO();
+			
+			vo.setId(this.getString("id"));
+			vo.setDate(this.getString("date"));
+			vo.setName(this.getString("name"));
+			vo.setCode(this.getString("code"));
+			vo.setUrl(this.getString("url"));
+			vo.setScore(this.getString("score"));
+			
+			url_list.add(vo);
+		}
+		
+		this.dbDisConnect();
+		
+		return url_list;
+	}
 }

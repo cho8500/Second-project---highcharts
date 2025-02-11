@@ -35,7 +35,7 @@ function initChart()
 				value : 50,
 				color : "red",
 				width : 1,
-				dashStyle : "dash"
+				dashStyle : "line"
 			}]
 		}],
 		series : [{
@@ -71,6 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	document.querySelector("#stockSelect").addEventListener("change", function () {
 		selectedStock = this.value;
 		filterStockData(selectedStock);
+		displayNews(selectedStock);
 		
 		document.querySelector("#stockTitle").textContent = `${selectedStock}`;
 	});
